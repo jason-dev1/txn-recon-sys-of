@@ -1,0 +1,14 @@
+node_modules/
+coverage/
+dist/
+**/dist/
+.env
+.env.*
+!.env.example
+data/
+**/data/
+**/node_modules/.tmp/
+apps/api/src/generated/prisma/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

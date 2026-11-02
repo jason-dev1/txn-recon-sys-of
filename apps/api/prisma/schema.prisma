@@ -1,0 +1,43 @@
+generator client {
+  provider              = "prisma-client"
+  output                = "../src/generated/prisma"
+  moduleFormat          = "cjs"
+  generatedFileExtension = "cts"
+  importFileExtension    = "cts"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Transaction {
+  transactionId      String             @id @map("transaction_id")
+  lifecycleId        String?            @map("lifecycle_id")
+  accountId          String             @map("account_id")
+  merchantName       String             @map("merchant_name")
+  transactionDate    DateTime           @map("transaction_date")
+  transactionAmount  Decimal            @map("transaction_amount")
+  currency           String
+  status             String
+  settlementStatus   String?            @default("PENDING") @map("settlement_status")
+  totalSettledAmount Decimal?           @default(0) @map("total_settled_amount")
+  lastSettlementDate DateTime?          @map("last_settlement_date")
+  createdAt          DateTime?          @default(now()) @map("created_at")
+  settlementHistory  SettlementHistory[]
+
+  @@map("transactions")
+}
+
+model SettlementHistory {
+  settlementId     String       @id @map("settlement_id")
+  transactionId    String?      @map("transaction_id")
+  lifecycleId      String?      @map("lifecycle_id")
+  settlementDate   DateTime     @map("settlement_date")
+  settlementAmount Decimal      @map("settlement_amount")
+  settlementType   String       @map("settlement_type")
+  currency         String
+  processedAt      DateTime?    @default(now()) @map("processed_at")
+  transaction      Transaction? @relation(fields: [transactionId], references: [transactionId], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("settlement_history")
+}
