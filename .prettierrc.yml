@@ -1,0 +1,22 @@
+printWidth: 150
+useTabs: true
+tabWidth: 2
+semi: true
+endOfLine: auto
+singleQuote: true
+trailingComma: all
+bracketSameLine: true
+arrowParens: always
+proseWrap: always
+overrides:
+  - files: '*.json'
+    options:
+      printWidth: 200
+  - files: '*.md'
+    options:
+      printWidth: 200
+  - files: '*.{yml,yaml}'
+    options:
+      printWidth: 200
+      singleQuote: true
+      useTabs: false

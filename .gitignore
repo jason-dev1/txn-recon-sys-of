@@ -12,3 +12,6 @@ apps/api/src/generated/prisma/
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal
+apps/web/cypress/screenshots/
+apps/web/cypress/videos/
+apps/web/cypress/downloads/
