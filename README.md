@@ -2,6 +2,10 @@
 
 A transaction settlement reconciliation app built with React, Express, Prisma, and SQLite. Upload settlement reports, review transactions and issues, and export filtered transactions as CSV or PDF.
 
+## Demo
+
+[View the demo video](./DEMO.mp4)
+
 ## Setup
 
 Requires Node.js 26 or newer and npm 10 or newer. From the repository root:
